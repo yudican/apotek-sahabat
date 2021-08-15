@@ -182,6 +182,12 @@ class TransaksiMasuk extends Component
         $this->modal = true;
     }
 
+    public function _handleSelectObat($obat_id, $key)
+    {
+        $obat = DataObat::find($obat_id);
+        $this->harga[$key] = $obat->obat_harga;
+    }
+
     public function _getTransactionCode($label = 'TRX', $prefix = '-')
     {
         $tanggal = date('dm') . substr(date('Y'), 2);

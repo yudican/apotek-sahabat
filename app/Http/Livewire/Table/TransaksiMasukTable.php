@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Table;
 
+// use App\Http\Livewire\LivewireDatatable;
 use App\Models\HideableColumn;
 use App\Models\Transaksi;
 use Mediconesystems\LivewireDatatables\BooleanColumn;

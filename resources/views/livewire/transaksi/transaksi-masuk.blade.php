@@ -72,19 +72,27 @@
                                         <tbody>
                                             @for ($index = 0; $index < count($inputs); $index++) <tr>
                                                 <td class="p-0">
-                                                    <x-select name="data_obat_id.{{$index}}">
-                                                        <option value="">Pilih Obat</option>
-                                                        @foreach ($obats as $obat)
-                                                        <option value="{{$obat->id}}">{{$obat->obat_nama}}
-                                                        </option>
-                                                        @endforeach
-                                                    </x-select>
+                                                    <div
+                                                        class="form-group {{$errors->has('data_obat_id.'.$index) ? 'has-error has-feedback' : '' }}">
+                                                        <select name="data_obat_id.{{$index}}"
+                                                            wire:model="data_obat_id.{{$index}}"
+                                                            wire:change="_handleSelectObat($event.target.value, {{$index}})"
+                                                            class="form-control">
+                                                            <option value="">Pilih Obat</option>
+                                                            @foreach ($obats as $obat)
+                                                            <option value="{{$obat->id}}">{{$obat->obat_nama}}
+                                                            </option>
+                                                            @endforeach
+                                                        </select>
+                                                        <small id="helpId" class="text-danger">{{ $errors->has('data_obat_id.'.$index)
+                                                            ? $errors->first('data_obat_id.'.$index) : '' }}</small>
+                                                    </div>
                                                 </td>
                                                 <td class="p-0">
                                                     <x-text-field type="number" name="jumlah.{{$index}}" />
                                                 </td>
                                                 <td class="p-0">
-                                                    <x-text-field type="number" name="harga.{{$index}}" />
+                                                    <x-text-field type="number" name="harga.{{$index}}" readonly />
                                                 </td>
                                                 <td class="p-0">
                                                     @if ($index > 0)

@@ -15,7 +15,7 @@ class DataObat extends Model
 
     public $incrementing = false;
 
-    protected $fillable = ['obat_nama', 'obat_merek', 'obat_dosis', 'obat_kemasan', 'obat_indikasi', 'obat_stok', 'obat_catatan', 'obat_gambar', 'data_satuan_id', 'data_jenis_id', 'data_kategori_id'];
+    protected $fillable = ['obat_nama', 'obat_merek', 'obat_dosis', 'obat_kemasan', 'obat_indikasi', 'obat_stok', 'obat_catatan', 'obat_gambar', 'obat_harga', 'data_satuan_id', 'data_jenis_id', 'data_kategori_id'];
 
     protected $dates = [];
 

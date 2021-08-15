@@ -34,6 +34,7 @@ class DataObatTable extends LivewireDatatable
             Column::name('obat_nama')->label('Nama Obat')->width('20%')->searchable(),
             Column::name('obat_merek')->label('Merek')->searchable(),
             Column::name('obat_dosis')->label('Dosis')->searchable(),
+            Column::name('obat_harga')->label('Harga Obat')->searchable(),
             Column::name('obat_kemasan')->label('Kemasan')->searchable(),
             Column::name('obat_indikasi')->label('Indikasi')->searchable(),
             Column::callback(['id', 'obat_stok'], function ($id, $obat_stok) {

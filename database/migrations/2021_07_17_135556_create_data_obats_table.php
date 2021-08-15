@@ -17,7 +17,7 @@ class CreateDataObatsTable extends Migration
             $table->uuid('id')->primary();
             $table->string('obat_nama', 50);
             $table->string('obat_merek', 50);
-            $table->string('obat_dosis', 50);
+            $table->text('obat_dosis',);
             $table->string('obat_kemasan', 50);
             $table->text('obat_indikasi');
             $table->text('obat_catatan')->nullable();

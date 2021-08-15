@@ -15,8 +15,7 @@
                             @else
                             <button class="btn btn-primary btn-sm"
                                 wire:click="{{$modal ? 'showModal' : 'toggleForm(true)'}}"><i class="fas fa-plus"></i>
-                                Add
-                                New</button>
+                                Tambah Data Obat</button>
                             @endif
                             @endif
                         </div>
@@ -42,7 +41,8 @@
                         <x-text-field type="text" name="obat_merek" label="Merek" />
                         <x-text-field type="text" name="obat_dosis" label="Dosis" />
                         <x-text-field type="text" name="obat_kemasan" label="Kemasan" />
-                        <x-text-field type="text" name="obat_indikasi" label="Indikasi" />
+                        <x-text-field type="number" name="obat_harga" label="Harga Obat" />
+                        <x-textarea type="text" name="obat_indikasi" label="Indikasi" />
                         <x-textarea type="textarea" name="obat_catatan" label="Catatan" />
 
                         <x-select name="data_satuan_id" label="Satuan">

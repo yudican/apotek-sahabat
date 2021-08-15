@@ -20,6 +20,7 @@ class DataObat extends Component
     public $obat_kemasan;
     public $obat_indikasi;
     public $obat_stok;
+    public $obat_harga;
     public $obat_catatan;
     public $obat_gambar;
     public $data_satuan_id;
@@ -56,6 +57,7 @@ class DataObat extends Component
             'obat_kemasan'  => $this->obat_kemasan,
             'obat_indikasi'  => $this->obat_indikasi,
             'obat_catatan'  => $this->obat_catatan,
+            'obat_harga'  => $this->obat_harga,
             'obat_gambar'  => $obat_gambar,
             'data_satuan_id'  => $this->data_satuan_id,
             'data_jenis_id'  => $this->data_jenis_id,
@@ -79,6 +81,7 @@ class DataObat extends Component
             'obat_kemasan'  => $this->obat_kemasan,
             'obat_indikasi'  => $this->obat_indikasi,
             'obat_catatan'  => $this->obat_catatan,
+            'obat_harga'  => $this->obat_harga,
             'obat_gambar'  => $this->obat_gambar,
             'data_satuan_id'  => $this->data_satuan_id,
             'data_jenis_id'  => $this->data_jenis_id,
@@ -117,12 +120,16 @@ class DataObat extends Component
             'obat_dosis'  => 'required',
             'obat_kemasan'  => 'required',
             'obat_indikasi'  => 'required',
+            'obat_harga'  => 'required|numeric',
             'obat_catatan'  => 'required',
-            'obat_gambar_path'  => 'required',
             'data_satuan_id'  => 'required',
             'data_jenis_id'  => 'required',
             'data_kategori_id'  => 'required'
         ];
+
+        if (!$this->update_mode) {
+            $rule['obat_gambar_path'] = 'required|image';
+        }
 
         return $this->validate($rule);
     }
@@ -136,6 +143,7 @@ class DataObat extends Component
         $this->obat_dosis = $data_obat->obat_dosis;
         $this->obat_kemasan = $data_obat->obat_kemasan;
         $this->obat_indikasi = $data_obat->obat_indikasi;
+        $this->obat_harga = $data_obat->obat_harga;
         $this->obat_catatan = $data_obat->obat_catatan;
         $this->obat_gambar = $data_obat->obat_gambar;
         $this->data_satuan_id = $data_obat->data_satuan_id;
@@ -165,6 +173,7 @@ class DataObat extends Component
 
     public function showModal()
     {
+        $this->_reset();
         $this->emit('showModal');
     }
 
@@ -179,6 +188,7 @@ class DataObat extends Component
         $this->obat_kemasan = null;
         $this->obat_indikasi = null;
         $this->obat_catatan = null;
+        $this->obat_harga = null;
         $this->obat_gambar = null;
         $this->data_satuan_id = null;
         $this->data_jenis_id = null;

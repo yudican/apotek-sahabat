@@ -9,8 +9,19 @@
         </div>
         <div class="col-md-12">
             <div class="card">
-                <div class="card-body">
-                    <x-text-field name="search" placeholder="Cari Obat" />
+                <div class="card-body row">
+                    {{-- Kolom PENCARIAN --}}
+                    <div class="col-md-3">
+                        <x-select name="category_id" placeholder="Pilih Kategori">
+                            <option value="">Pilih Kategori</option>
+                            @foreach ($categories as $category)
+                            <option value="{{$category->id}}">{{$category->data_kategori_nama}}</option>
+                            @endforeach
+                        </x-select>
+                    </div>
+                    <div class="col-md-9">
+                        <x-text-field name="search" placeholder="Cari Obat" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -18,6 +29,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
+                        @if (count($items))
                         @foreach ($items as $item)
                         <div class="col-lg-2 col-md-2 col-sm-4 col-6" wire:click="showDetail('{{$item->id}}')">
                             <div class="card p-0" style="height: 210px">
@@ -47,6 +59,12 @@
                             </div>
                         </div>
                         @endforeach
+                        @else
+                        <div class="col-md-12 text-center pt-4 pb-4">
+                            <h3>Obat Tidak Tersedia</h3>
+                        </div>
+                        @endif
+
                     </div>
                 </div>
             </div>
