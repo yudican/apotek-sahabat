@@ -142,9 +142,9 @@
                             <div class="col-md-4">
                                 <x-text-field type="text" name="tanggal_transaksi" label="Tanggal transaksi" readonly />
                             </div>
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <x-text-field type="text" name="suplier" label="Suplier" readonly />
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-12">
                                 <div class="form-group">
